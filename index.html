@@ -110,6 +110,13 @@
         .tests li.fail { border-color: hsl(0, 65%, 50%); background-color: hsl(0, 80%, 96%); }
         .tests .group  { color: #6b7a70; font-size: 0.85rem; }
         .summary { font-size: 1.2rem; font-weight: 800; }
+        #basics-table code { font-size: 0.9rem; }
+        #basics-table tr.group td {
+            background-color: var(--forest);
+            color: var(--sand);
+            font-family: "Lora", Georgia, serif;
+            font-weight: 700;
+        }
 
         footer { text-align: center; }
 
@@ -128,6 +135,7 @@
             <ul>
                 <li><a href="#task1">Завдання 1</a></li>
                 <li><a href="#task2">Завдання 2</a></li>
+                <li><a href="#basics">Основи JS</a></li>
                 <li><a href="#tests">Тести</a></li>
             </ul>
         </nav>
@@ -223,6 +231,13 @@
             </div>
         </section>
 
+        <!-- ===================== Основи JavaScript ===================== -->
+        <section id="basics">
+            <h2>Основи JavaScript на даних MindCare</h2>
+            <p class="hint">Код: <code>js/basics.js</code>. Кожен рядок — вираз з коду і його фактичний результат (ті самі дані виводяться в консоль браузера, F12).</p>
+            <div class="table-wrap" id="basics-table"></div>
+        </section>
+
         <!-- ===================== Тести ===================== -->
         <section id="tests">
             <h2>Тестування</h2>
@@ -238,6 +253,7 @@
 
     <script src="js/services.js"></script>
     <script src="js/users.js"></script>
+    <script src="js/basics.js"></script>
     <script src="js/tests.js"></script>
     <script src="js/app.js"></script>
 </body>

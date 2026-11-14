@@ -172,6 +172,31 @@ renderTable($("#users-sorted"), [
     { title: "Мета зворотнього зв'язку", value: (u) => u.purpose }
 ], registry.sortedAlphabetically());
 
+/* ===================== Основи JavaScript ===================== */
+
+(function renderBasics() {
+    const table = document.createElement("table");
+    table.innerHTML = "<thead><tr><th>Вираз у коді</th><th>Результат</th></tr></thead>";
+    const body = table.createTBody();
+    let currentSection = "";
+    basicsLog.forEach(({ section, expression, value }) => {
+        if (section !== currentSection) {
+            currentSection = section;
+            const groupCell = body.insertRow().insertCell();
+            groupCell.colSpan = 2;
+            groupCell.parentElement.className = "group";
+            groupCell.textContent = section;
+        }
+        const row = body.insertRow();
+        const codeCell = row.insertCell();
+        const code = document.createElement("code");
+        code.textContent = expression;
+        codeCell.appendChild(code);
+        row.insertCell().textContent = value;
+    });
+    $("#basics-table").replaceChildren(table);
+})();
+
 /* ===================== Тести ===================== */
 
 const passedCount = testResults.filter((r) => r.ok).length;
